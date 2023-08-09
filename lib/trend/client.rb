@@ -15,6 +15,7 @@ module Trend
       @http.use_ssl = true if @uri.scheme == "https"
       @http.open_timeout = timeout
       @http.read_timeout = timeout
+      @http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     end
 
     def anomalies(series, params = {})
